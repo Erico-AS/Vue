@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <input type="text" v-model="titulo">
+<!--v-model muda a viewHtml e a instância Vue-->
+    <p>{{ titulo }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJs',
+        }
+    })
+</script>

@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="somar">{{ contador > 10 ? 'Somando e multiplicando maiores que 10' : 'Somar e multiplicar'}}</button>
+    <!--v-on:click == onClick-->>
+    <p>{{ contador * 2}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app", //elemento
+        data: {
+            contador: 0
+        },
+        methods: {
+            somar() {
+                this.contador++
+            }
+        }
+    })
+</script>

@@ -1,0 +1,53 @@
+#efeito {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.destaque {
+	background-color: red;
+	width: 200px !important;
+}
+
+.encolher {
+	background-color: gray;
+	width: 50px !important;
+}
+
+.classeNova {
+	background-color: aquamarine;
+	width: 100px;
+	height: 100px;
+}
+
+.clCriada {
+	background-color: yellowgreen;
+}
+
+.clCriada2 {
+	border: 1px solid brown;
+}
+
+.classeQ4 {
+	background-color: rgb(127, 150, 255);
+	width: 100px;
+	height: 100px;
+}
+
+.perigo {
+	background-color: red;
+	width: 100px;
+	height: 100px;
+}
+
+
+.barra-progresso {
+	width: 200px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+.progresso {
+	background-color: red;
+	height: 100%;
+}

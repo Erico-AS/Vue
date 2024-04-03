@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<div id="app" v-on:mousemove="cordenada" style="width: 100%; height: 100%;">
+    <button v-on:click="somar(5, $event)">Soma 1</button>
+    <!--v-on:click == onClick || $event == capturar evento-->
+    <p>{{ contador }}</p>
+        
+    <p>Mouse: X = {{ x }} e  Y ={{ y }}</p>
+    <p v-on:mousemove.stop="">PARAR</p>
+    <!-- eveventos tem propriedades para manipula-lo-->
+
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+    <!--Teclas dos eventos-->
+</div>
+
+<script>
+    new Vue({
+        el: "#app", //elemento
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar: function (passo) {
+                this.contador += passo
+            },
+
+            cordenada(event) {
+                this.x = event.screenX;
+                this.y = event.screenY;
+            },
+
+            exibirAlerta() {
+                alert('exibiu!')
+            }
+
+            // parar(e) {
+            //     e.stopPropagation()
+            // }
+        }
+    })
+</script>
