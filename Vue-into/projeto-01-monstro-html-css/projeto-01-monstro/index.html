@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Matador de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <div class="score">
+                <h1>Jogador</h1>
+                <div class="life-bar">
+                    <div class="life" :style="{ width: widthJ + '%' }"></div>
+                </div>
+                <div>{{ widthJ + '%'}}</div>
+            </div>
+            <div class="score">
+                <h1>Monstro</h1>
+                <div class="life-bar">
+                    <div class="life" :style="{width: widthM + '%'}"></div>
+                </div>
+                <div>{{ widthM + '%'}}</div>
+            </div>
+        </div>
+        <div class="panel result" v-show="ganhou !== null">
+            <div class="win" v-if="ganhou">Você ganhou!!! :)</div>
+            <div class="lose" v-else>Você perdeu! :(</div>
+        </div>
+        
+        <template v-if="comecou && ganhou == null">
+            <div class="panel buttons">
+                <button class="btn attack" @click="ataque('normal')">Ataque</button>
+                <button class="btn especial-attack" @click="ataque('especial')" value="especial">Ataque Especial</button>
+                <button class="btn heal" @click="curar()" :disabled="widthJ >= 100">Curar</button>
+                <button class="btn give-up" @click="comecou = !comecou">Desistir</button>
+            </div>
+        </template>
+        <button class="btn new-game"  v-show="!comecou" @click="comecou = !comecou">Iniciar Jogo</button>
+            
+        <div class="panel logs">
+            <template v-if="jogadas.length > 0">
+                <ul>
+                    <li v-for="jogada in jogadas" :class="jogada.class">
+                        {{ jogada.player == 'jogador' ? 'Jogador atingiu Monstro com ' + jogada.ataque : 'Monstro atingiu Jogador com ' + jogada.ataque }}
+                    </li>
+                </ul>      
+            </template>      
+        </div>        
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
