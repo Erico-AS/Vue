@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <h2>{{ modulo }}</h2>
+    <button @click="titulo += '#'">Alterar Aula</button>
+    <button @click="$destroy()">Alterar Modulo</button>
+
+    <div class="comp"></div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Ciclo de Vida'
+        },
+        beforeCreate: function() {
+            console.log('antes de criar')
+        },
+        created: function() {
+            console.log('criado')
+        },
+        beforeMount: function() {
+            console.log('antes de montar {DOM}')
+        },
+        mounted: function() {
+            console.log('DOM montada')
+        },
+        beforeUpdate: function() {
+            console.log('antes de atualizar')
+        },
+        updated: function() {
+            console.log('atualizado')
+        },
+        beforeDestroy: function() {
+            console.log('antes de destruir')
+        },
+        destroyed: function() {
+            console.log('destruido')
+        }
+    })
+</script>
